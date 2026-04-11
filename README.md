@@ -4,7 +4,7 @@
 
 Control a WS2801 LED strip from Kodi on Raspberry Pi.
 
-`#ff0000`Caution: Vibe-coded app! Use at your own risk!`#ff0000`
+[!CAUTION] Vibe-coded app! Use at your own risk!
 
 ## Features
 - Set color
