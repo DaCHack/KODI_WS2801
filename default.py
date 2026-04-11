@@ -1,53 +1,43 @@
-import xbmc
-import xbmcgui
 import xbmcaddon
+import xbmcgui
 
 from resources.lib.led_controller import LEDController
 
 addon = xbmcaddon.Addon()
 dialog = xbmcgui.Dialog()
 
-def ask_color():
-    colors = [
-        ("Red", (255, 0, 0)),
-        ("Green", (0, 255, 0)),
-        ("Blue", (0, 0, 255)),
-        ("White", (255, 255, 255)),
-        ("Yellow", (255, 255, 0)),
-        ("Purple", (255, 0, 255)),
-        ("Cyan", (0, 255, 255)),
-        ("Off", (0, 0, 0))
-    ]
 
-    names = [c[0] for c in colors]
-    choice = dialog.select("Choose Color", names)
-
-    if choice == -1:
-        return None
-
-    return colors[choice][1]
-
-
-def ask_brightness():
-    brightness = dialog.numeric(0, "Brightness (0-100)", "100")
+def get_setting_int(id, default):
     try:
-        val = int(brightness)
-        return max(0, min(100, val))
+        return int(addon.getSetting(id))
     except:
-        return 100
+        return default
 
 
 def main():
-    color = ask_color()
-    if color is None:
-        return
+    # Read hardware settings
+    num_leds = get_setting_int("num_leds", 30)
+    bus = get_setting_int("spi_bus", 0)
+    device = get_setting_int("spi_device", 0)
 
-    brightness = ask_brightness()
+    # Read color settings
+    red = get_setting_int("red", 255)
+    green = get_setting_int("green", 255)
+    blue = get_setting_int("blue", 255)
+    brightness = get_setting_int("brightness", 100)
 
-    led = LEDController(num_leds=30)
+    color = (red, green, blue)
+
+    # Apply LED color
+    led = LEDController(num_leds=num_leds, bus=bus, device=device)
     led.set_color(color, brightness)
 
-    dialog.ok("WS2801 LED", "Color applied successfully!")
+    dialog.notification(
+        "WS2801 LED",
+        f"Set to RGB({red},{green},{blue}) @ {brightness}%",
+        xbmcgui.NOTIFICATION_INFO,
+        3000
+    )
 
 
 if __name__ == "__main__":
