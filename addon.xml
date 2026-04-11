@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.program.ws2801led"
+       name="WS2801 LED Controller"
+       version="1.0.0"
+       provider-name="YourName">
+
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <summary>Control WS2801 LED strip via GPIO (SPI)</summary>
+        <description>Set color and brightness of WS2801 LED strip connected to Raspberry Pi.</description>
+        <platform>linux</platform>
+    </extension>
+
+</addon>
