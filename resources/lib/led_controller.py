@@ -8,7 +8,7 @@ except ImportError:
 
 
 class LEDController:
-    def __init__(self, num_leds=30, bus=0, device=0):
+    def __init__(self, num_leds=5, bus=0, device=0):
         self.num_leds = num_leds
         self.bus = bus
         self.device = device
@@ -24,7 +24,7 @@ class LEDController:
         factor = brightness / 100.0
         return tuple(int(c * factor) for c in color)
 
-    def set_color(self, color, brightness=100):
+    def set_color(self, color, brightness=50):
         color = self.apply_brightness(color, brightness)
 
         data = []
