@@ -8,9 +8,7 @@
         <import addon="xbmc.python" version="3.0.0"/>
     </requires>
 
-    <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>executable</provides>
-    </extension>
+    <extension point="xbmc.python.script" library="default.py"/>
 
     <extension point="xbmc.addon.metadata">
         <summary>Control WS2801 LED strip via GPIO (SPI)</summary>
