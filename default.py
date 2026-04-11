@@ -16,7 +16,7 @@ def get_setting_int(id, default):
 
 def main():
     # Read hardware settings
-    num_leds = get_setting_int("num_leds", 30)
+    num_leds = get_setting_int("num_leds", 5)
     bus = get_setting_int("spi_bus", 0)
     device = get_setting_int("spi_device", 0)
 
@@ -24,7 +24,7 @@ def main():
     red = get_setting_int("red", 255)
     green = get_setting_int("green", 255)
     blue = get_setting_int("blue", 255)
-    brightness = get_setting_int("brightness", 100)
+    brightness = get_setting_int("brightness", 50)
 
     color = (red, green, blue)
 
