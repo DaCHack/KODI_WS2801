@@ -1,6 +1,10 @@
+<img width="200" alt="LED Steuerung mit WS2801 Modul" src="icon-png" />
+
 # WS2801 Kodi Addon
 
 Control a WS2801 LED strip from Kodi on Raspberry Pi.
+
+<font color="red">Caution: Vibe-coded app! Use at your own risk!</font>
 
 ## Features
 - Set color
