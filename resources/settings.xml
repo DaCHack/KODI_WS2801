@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <settings>
-    <category label="LED Settings">
 
-        <setting id="num_leds" type="number" label="Number of LEDs" default="30"/>
-        <setting id="spi_bus" type="number" label="SPI Bus" default="0"/>
-        <setting id="spi_device" type="number" label="SPI Device" default="0"/>
+    <category label="LED Control">
 
-        <setting type="sep"/>
+        <setting id="led_enabled"
+                 type="bool"
+                 label="Enable LEDs"
+                 default="true" />
 
-        <setting id="red" type="slider" label="Red" default="255" range="0,1,255"/>
-        <setting id="green" type="slider" label="Green" default="255" range="0,1,255"/>
-        <setting id="blue" type="slider" label="Blue" default="255" range="0,1,255"/>
-
-        <setting id="brightness" type="slider" label="Brightness (%)" default="100" range="0,1,100"/>
+        <setting id="led_color_r" type="number" label="Red" default="255" />
+        <setting id="led_color_g" type="number" label="Green" default="0" />
+        <setting id="led_color_b" type="number" label="Blue" default="0" />
 
     </category>
+    
 </settings>
